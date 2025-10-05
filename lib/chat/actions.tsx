@@ -42,9 +42,9 @@ interface MutableAIState {
   get: () => AIState
 }
 
-const MODEL = 'llama-3.3-70b-versatile'
-const TOOL_MODEL = 'llama-3.3-70b-versatile'
-const GROQ_API_KEY_ENV = process.env.GROQ_API_KEY
+const MODEL = 'garda-beta-mini'
+const TOOL_MODEL = 'nusantara-base'
+const NAI_API_KEY = process.env.NAI_API_KEY
 
 type ComparisonSymbolObject = {
   symbol: string;
@@ -58,8 +58,8 @@ async function generateCaption(
   aiState: MutableAIState
 ): Promise<string> {
   const groq = createOpenAI({
-    baseURL: 'https://api.groq.com/openai/v1',
-    apiKey: GROQ_API_KEY_ENV
+    baseURL: 'https://api.neosantara.xyz/v1',
+    apiKey: NAI_API_KEY
   })
   
   const stockString = comparisonSymbols.length === 0
@@ -188,8 +188,8 @@ async function submitUserMessage(content: string) {
 
   try {
     const groq = createOpenAI({
-      baseURL: 'https://api.groq.com/openai/v1',
-      apiKey: GROQ_API_KEY_ENV
+      baseURL: 'https://api.neosantara.xyz/v1',
+      apiKey: NAI_API_KEY
     })
 
     const result = await streamUI({
