@@ -9,7 +9,7 @@ export function MissingApiKeyBanner({
 }: {
   missingKeys: string[]
 }) {
-  if (!missingKeys.includes('GROQ_API_KEY')) {
+  if (!missingKeys.includes('NAI_API_KEY')) {
     return null
   }
 
